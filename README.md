@@ -15,15 +15,14 @@ A roblox hack client that I just started. I will be working on this client!
 
 ```lua
 
-local guilibrary = { Font = Enum.Font.Arial } -- Can now change the value of the fonts
+local guilibraryT = { Font = Enum.Font.Arial } -- Can now change the value of the fonts
 
 ```
 * Added reloading for roblox studio
 ```lua
 
 
-local guilibrary = loadstring(game:HttpGet("raw.github.com/resurvenge/Qxi/master/guilibrary.lua", true))();
-
+local guilibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/resurvenge/Qxi/master/guilibrary.lua", true))()
 _G.reload = function()
             -- IMPORT ALL OF THE CODE YOU WANT TO RELOAD
 
