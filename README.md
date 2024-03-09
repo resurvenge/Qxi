@@ -18,6 +18,19 @@ A roblox hack client that I just started. I will be working on this client!
 local guilibrary = { font = Enum.Font.Arial }
 
 ```
+* Added reloading for roblox studio
+```lua
+
+
+local guilibrary = loadstring(game:HttpGet("raw.github.com/resurvenge/Qxi/master/guilibrary.lua", true))();
+
+_G.reload = function()
+            -- IMPORT ALL OF THE CODE YOU WANT TO RELOAD
+
+             return loadQiex(); -- MUST BE AT THE END
+ end
+
+```
 ------------
 
 * if you have any bugs please dm (discord: "kepwastaken" or if that doesnt work then its "2.ik.2")
