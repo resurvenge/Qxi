@@ -26,7 +26,7 @@ local guilibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/re
 _G.reload = function()
             -- IMPORT ALL OF THE CODE YOU WANT TO RELOAD
 
-             return loadQiex(); -- MUST BE AT THE END
+             return loadQxi(); -- MUST BE AT THE END
  end
 
 ```
