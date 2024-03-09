@@ -15,7 +15,7 @@ A roblox hack client that I just started. I will be working on this client!
 
 ```lua
 
-local guilibrary = { font = Enum.Font.Arial }
+local guilibrary = { Font = Enum.Font.Arial } -- Can now change the value of the fonts
 
 ```
 * Added reloading for roblox studio
@@ -31,6 +31,8 @@ _G.reload = function()
  end
 
 ```
+
+* CURRENTLY WORKING ON RESTORING SHARED.ASSETS TABLE 
 ------------
 
 * if you have any bugs please dm (discord: "kepwastaken" or if that doesnt work then its "2.ik.2")
