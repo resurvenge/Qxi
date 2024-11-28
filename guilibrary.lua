@@ -4,6 +4,11 @@ local starterGui = game:GetService("StarterGui");
 local coreGui = game:GetService("CoreGui");
 local UserInputService = game:GetService("UserInputService");
 
+
+if _G.loaded then
+	   _G.screenGui:Destroy()
+end
+
 local guilibrary = {
 	Scale = {
 		Factor = 1
@@ -21,6 +26,7 @@ local guilibrary = {
 }
 
 local function loadQiex()
+	_G.loaded = true
 	local studio = false
 	local ScreenGui
 
@@ -65,6 +71,7 @@ local function loadQiex()
 			Name = randomString();
 			Parent = coreGui
 		})
+		_G.screenGui = ScreenGui
 	else
 		ScreenGui = script.Parent
 	end
@@ -224,7 +231,7 @@ local function loadQiex()
 
 				WindowButtonContainer.ChildAdded:Connect(function(child)
 					if child and child.Position then
-						child.Position+=udim2(0,0.13)
+						 child.Position+=udim2(0,0.13)
 					end
 				end)
 
