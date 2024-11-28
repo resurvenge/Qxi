@@ -16,7 +16,8 @@ local guilibrary = {
 	StudioScreenGui = starterGui:FindFirstChild("ScreenGui") or script.Parent,
 	Colors = {
 		WindowColor = Color3.fromRGB(142, 214, 255)
-	}
+	},
+	VERSION = "UPDT"
 }
 
 local function loadQiex()
