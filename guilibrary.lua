@@ -252,6 +252,14 @@ local function loadQiex()
 							TextSize = 13,
 							Text ="   " ..  buttonsoptions.Name or "Label"
 						}
+                        if buttonsoptions.Function then
+                            button.InputBegan:Connect(function(input, gpe)
+                                if gpe then return end;
+                                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                                     buttonsoptions.Function()
+                                end
+                            end)
+                        end
 					end
 				}
 			end,
@@ -274,5 +282,3 @@ local function loadQiex()
 end
 
 return loadQiex()
-
-
