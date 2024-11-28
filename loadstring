@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/resurvenge/Qxi/master/guilibrary.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/resurvenge/Qxi/master/mainfile.lua", true))()
