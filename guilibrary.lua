@@ -20,7 +20,7 @@ local guilibrary = {
 }
 
 local function loadQiex()
-	local studio = true
+	local studio = false
 	local ScreenGui
 
 	local function scale(x, y)
