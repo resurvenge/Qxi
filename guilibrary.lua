@@ -62,7 +62,7 @@ local function loadQiex()
 			instance = "ScreenGui",
 			ZIndexBehavior = Enum.ZIndexBehavior.Global,
 			Name = randomString();
-			Parent = starterGui
+			Parent = coreGui
 		})
 	else
 		ScreenGui = script.Parent
@@ -275,7 +275,7 @@ local function loadQiex()
 		}
 	end
 	if _G.reload then
-		_G.reload()
+		 _G.reload()
 	end
 	dragUI(MainFrame)
 	return guilibrary
