@@ -7,9 +7,6 @@ if uilib then
 	print(uilib.VERSION)
 end
 
-
-print("script ver. 1")
-
 local BlatantCategory = uilib.CreateCategory({ Name =  "Blatant", })
 local WorldCategory = uilib.CreateCategory({ Name =  "World", })
 
@@ -17,15 +14,24 @@ local Blatant = BlatantCategory.CreateWindow({ Name =  "Blatant"})
 local World = WorldCategory.CreateWindow({ Name =  "World", })
 
 Blatant.CreateButton({ Name = "jumpHeight", Function = function()
-	   game.Players.LocalPlayer.Character.Humanoid.JumpHeight = 30
+	   game.Players.LocalPlayer.Character.Humanoid.JumpHeight = 40
 end})
 
-Blatant.CreateButton({ Name = "Speed {dont try in bedwars]", Function = function()
-	  local old = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
-	  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+
+
+Blatant.CreateButton({ Name = "Speed {dont try in bedwars]", Function = function(toggle)
+	local old = playerService.LocalPlayer.Character.Humanoid.WalkSpeed
+	  if toggle then
+		   playerService.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+	  else
+	  	  playerService.LocalPlayer.Character.Humanoid.WalkSpeed = old
+	  end
 end})
 
+
+local espConnection
 World.CreateButton({ Name = "ESP", Function = function(toggle)
+
 	    if toggle then
 			   for _, player in pairs(playerService:GetChildren()) do
 				       if player then
@@ -35,6 +41,12 @@ World.CreateButton({ Name = "ESP", Function = function(toggle)
 							  end
 					   end
 			   end
+			   espConnection = playerService.ChildAdded:Connect(function(plr)
+					 plr.ChildAdded:Connect(function()
+							local HighlightInstance = Instance.new("Highlight")
+							HighlightInstance.Parent = plr.Character
+					 end)
+			   end)
 			else
 				for _, player in pairs(playerService:GetChildren()) do
 					if player then
@@ -42,6 +54,7 @@ World.CreateButton({ Name = "ESP", Function = function(toggle)
 								  for _, obj in pairs(player.Character:GetChildren()) do
 									     if obj:IsA("Highlight") then
 											    obj:Destroy()
+												espConnection:Disconnect()
 										 end
 								  end
 						   end
