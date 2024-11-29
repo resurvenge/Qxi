@@ -6,7 +6,7 @@ local UserInputService = game:GetService("UserInputService");
 
 
 if _G.loaded then
-	   _G.shutdown()
+	 _G.shutdown()
 end
 
 local guilibrary = {
@@ -22,14 +22,15 @@ local guilibrary = {
 	Colors = {
 		WindowColor = Color3.fromRGB(142, 214, 255)
 	},
-	VERSION = "DATE: 11/28/2024, TIME: 5:00PM, PATCH NUMBER_1.1",
+	VERSION = "DATE: 11/28/2024, TIME: 11:17PM, PATCH NUMBER_1.2",
 	UISTROKES = true,
 	UISHADOWS = true,
 	THEMECOLORS = {
 		 BUTTON_COLOR = Color3.fromRGB(255, 105, 105),
 		 TEXT_COLOR = Color3.fromRGB(196, 196, 196),
 		 STROKES_COLOR = Color3.fromRGB(248, 109, 109)
-	}
+	},
+	ENABLED = true
 }
 
 local function loadQiex()
@@ -93,6 +94,18 @@ local function loadQiex()
 		BackgroundTransparency = 0.01;
 		BackgroundColor3 = Color3.fromRGB(31, 31, 31);
 	})
+
+	UserInputService.InputBegan:Connect(function(inp, gpe)
+		     if inp.KeyCode == Enum.KeyCode.RightShift then
+				    if guilibrary.ENABLED then
+						ScreenGui.Enabled = true
+						guilibrary.ENABLED = false
+					else
+						ScreenGui.Enabled = false
+						guilibrary.ENABLED = true
+					end
+			 end
+	end)
 
 	local function guiShadow(parent_frame)
 		  if guilibrary.UISHADOWS then
@@ -367,9 +380,7 @@ local function loadQiex()
                             button.InputBegan:Connect(function(input, gpe)
                                 if gpe then return end;
                                 if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                                      if BUTTON_CONFIG.ENABLED then
-										   buttonsoptions.Function(BUTTON_CONFIG.ENABLED)
-									  end
+										buttonsoptions.Function(BUTTON_CONFIG.ENABLED)
                                 end
                             end)
 							WindowButtonContainer.ChildAdded:Connect(function(child)
