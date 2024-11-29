@@ -5,8 +5,8 @@ local coreGui = game:GetService("CoreGui");
 local UserInputService = game:GetService("UserInputService");
 
 
-if _G.loaded then
-	 _G.shutdown()
+if _G.loaded or _G.Qxiexecuted then
+	   _G.shutdown()
 end
 
 local guilibrary = {
@@ -22,7 +22,7 @@ local guilibrary = {
 	Colors = {
 		WindowColor = Color3.fromRGB(142, 214, 255)
 	},
-	VERSION = "DATE: 11/28/2024, TIME: 11:17PM, PATCH NUMBER_1.2",
+	VERSION = "DATE: 11/28/2024, TIME: 5:00PM, PATCH NUMBER_1.1",
 	UISTROKES = true,
 	UISHADOWS = true,
 	THEMECOLORS = {
@@ -30,11 +30,12 @@ local guilibrary = {
 		 TEXT_COLOR = Color3.fromRGB(196, 196, 196),
 		 STROKES_COLOR = Color3.fromRGB(248, 109, 109)
 	},
+	UICORNER = {},
 	ENABLED = true
 }
 
 local function loadQiex()
-	_G.loaded = true
+	 _G.Qxiexecuted = true
 	local studio = false
 	local ScreenGui
 
@@ -56,7 +57,9 @@ local function loadQiex()
 	end
 
 	local function AddUICorner(Properties)
-		return instance({instance = "UICorner",Parent = Properties.parent, CornerRadius = UDim.new(Properties.scale)})
+		  if guilibrary.UICORNER then
+			   return instance({instance = "UICorner",Parent = Properties.parent, CornerRadius = UDim.new(Properties.scale)})
+		  end
 	end
 	local function AddUIStroke(Properties)
 		if guilibrary.UISTROKES then
